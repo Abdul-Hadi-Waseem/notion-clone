@@ -1,0 +1,27 @@
+{
+  "version": "5",
+  "dialect": "pg",
+  "entries": [
+    {
+      "idx": 0,
+      "version": "5",
+      "when": 1713961924297,
+      "tag": "0000_colorful_warstar",
+      "breakpoints": true
+    },
+    {
+      "idx": 1,
+      "version": "5",
+      "when": 1713962929073,
+      "tag": "0001_fearless_ronan",
+      "breakpoints": true
+    },
+    {
+      "idx": 2,
+      "version": "5",
+      "when": 1713965829841,
+      "tag": "0002_sharp_iron_lad",
+      "breakpoints": true
+    }
+  ]
+}
