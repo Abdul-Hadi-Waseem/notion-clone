@@ -1,11 +1,16 @@
+"use client"
 import React from "react"
 import HomePage from "./page"
-interface IHomePageLayout {}
+import Header from "@/components/landing-page/Header"
+interface IHomePageLayout {
+  children: React.ReactNode
+}
 
-const HomePageLayout: React.FC<IHomePageLayout> = () => {
+const HomePageLayout: React.FC<IHomePageLayout> = ({ children }) => {
   return (
     <main>
-      <HomePage />
+      <Header />
+      {children}
     </main>
   )
 }
