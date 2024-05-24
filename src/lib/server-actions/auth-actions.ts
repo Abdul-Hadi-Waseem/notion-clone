@@ -10,11 +10,11 @@ export async function actionLoginUser({
   password,
 }: z.infer<typeof FormSchema>) {
   const supabase = createRouteHandlerClient({ cookies })
-  const response = supabase.auth.signInWithPassword({
+  const response = await supabase.auth.signInWithPassword({
     email,
     password,
   })
-  return response
+  return { data: response.data.user, error: response.error?.message }
 }
 export async function actionSignUpUser({
   email,
@@ -26,7 +26,7 @@ export async function actionSignUpUser({
     .select("*")
     .eq("email", email)
 
-  if (data?.length) return { error: { message: "User already exists", data } }
+  if (data?.length) return { error: { message: "User already exists" }, data }
   const response = await supabase.auth.signUp({
     email,
     password,

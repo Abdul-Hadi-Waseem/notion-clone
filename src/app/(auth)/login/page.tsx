@@ -20,6 +20,7 @@ import { Input } from "@/components/ui/input"
 import { Button } from "@/components/ui/button"
 import Loader from "@/components/Loader"
 import { actionLoginUser } from "@/lib/server-actions/auth-actions"
+import { AuthError } from "@supabase/supabase-js"
 interface ILoginPage {}
 
 const LoginPage: React.FC<ILoginPage> = () => {
@@ -39,10 +40,12 @@ const LoginPage: React.FC<ILoginPage> = () => {
   ) => {
     const { error } = await actionLoginUser(formData)
     if (error) {
+      setSubmitError(error)
+
       form.reset()
-      setSubmitError(error.message)
+    } else {
+      router.replace("/dashboard")
     }
-    router.replace("/dashboard")
   }
   return (
     <Form {...form}>
